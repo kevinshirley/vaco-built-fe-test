@@ -32,6 +32,7 @@ export const STOCKS = createTypes('STOCKS', [
   'SET_SEARCH_INPUT_RESULTS',
   'RESET_SEARCH_INPUT_RESULTS',
   'SET_MARKET_NEWS',
+  'CREATE_BLOG_POST',
 ]);
 
 export const root = {
@@ -47,4 +48,5 @@ export const stocks = {
   setSearchInputResults: (payload: any) => action(STOCKS.SET_SEARCH_INPUT_RESULTS, payload),
   resetSearchInputResults: () => action(STOCKS.RESET_SEARCH_INPUT_RESULTS),
   setMarketNews: (payload: any) => action(STOCKS.SET_MARKET_NEWS, payload),
+  createBlogPost: (payload: any) => action(STOCKS.CREATE_BLOG_POST, payload),
 };

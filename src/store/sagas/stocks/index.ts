@@ -31,6 +31,10 @@ export function* watchStockMarketNews() {
   yield takeLatest(ROOT.INITIAL_LOAD, stockMarketNews);
 }
 
+export function* watchCreateBlogPost() {
+  yield takeLatest(STOCKS.CREATE_BLOG_POST, createBlogPost);
+}
+
 function* getCompanyProfile({ payload }: any) {
   try {
     const { symbol } = payload;
@@ -110,6 +114,14 @@ function* stockMarketNews() {
     } else {
       console.log('No stock market news available');
     }
+  } catch(error) {
+    console.log('try/catch error in stockMarketNews saga');
+  }
+}
+
+function* createBlogPost({ payload }) {
+  try {
+    console.log({ payload });
   } catch(error) {
     console.log('try/catch error in stockMarketNews saga');
   }

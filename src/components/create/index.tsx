@@ -7,6 +7,8 @@ import { useRouter } from 'next/router';
 import { selectSlugifiedBlogPosts } from '../../store/selectors/news';
 import InputField from '../common/input';
 import Button from '../common/button';
+import { useAction } from '../../store/hooks';
+import * as actions from '../../store/actions';
 
 interface PostType {
   id: number;
@@ -19,9 +21,7 @@ interface PostType {
 const BEM_BLOCK = 'c-blog-post';
 
 function MarketNewsContainer() {
-  const router = useRouter();
-
-  const blogPosts: PostType[] = useSelector(selectSlugifiedBlogPosts);
+  const createBlogPost = useAction(actions.stocks.createBlogPost);
 
   const [title, setTitle]: any = useState('');
   const [text, setText]: any = useState('');
@@ -36,6 +36,7 @@ function MarketNewsContainer() {
 
   const onSave = () => {
     console.log({ title, text });
+    createBlogPost({ title, text });
   };
 
   return (
