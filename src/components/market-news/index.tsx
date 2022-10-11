@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { isEmpty, isNil } from 'ramda';
 import moment from 'moment';
 
-import { selectMarketNews, selectSlugifiedBlogPosts } from '../../store/selectors/news';
+import { selectSlugifiedBlogPosts } from '../../store/selectors/news';
 import Link from '../common/link';
 
 interface PostType {
@@ -17,13 +17,15 @@ interface PostType {
 const BEM_BLOCK = 'c-market-news';
 
 function MarketNewsContainer() {
-  const marketNews: PostType[] = useSelector(selectMarketNews);
   const blogPosts = useSelector(selectSlugifiedBlogPosts);
 
   return (
     <>
       {!isEmpty(blogPosts) && !isNil(blogPosts) ? (
         <div className={BEM_BLOCK}>
+          <div className={`${BEM_BLOCK}__create-blog-post`}>
+            <Link href={`/create`}>Create blog post</Link>
+          </div>
           <div className={`${BEM_BLOCK}__list`}>
             {blogPosts.map((post: PostType) => {
               const dateObject = new Date(post.timestamp)

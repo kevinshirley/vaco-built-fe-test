@@ -22,7 +22,7 @@ function Root({ Component, pageProps }: AppProps) {
     <ErrorBoundary>
       <main className={BEM_BLOCK}>
         <Head>
-          <title>Stock Market Recommender | kevinshirley.com</title>
+          <title>Blog Posts | VacoBuilt and kevinshirley.com</title>
           <meta name="description" content="App that can provide a buy, hold or sell recommendation when given a stock symbol. The recommendation adjusts itself based on data." />
           <meta name="author" content="Kevin Shirley" />
           <link rel="icon" href="/favicon.ico" />
