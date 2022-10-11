@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { put, takeLatest, call, select } from 'redux-saga/effects';
 import { isNil, isEmpty, map, includes, filter } from 'ramda';
+
 import { STOCKS, stocks, ROOT } from '../../actions';
 import { API_ROUTE } from '../../constants/api';
 import { post, get } from '../../../utils/fetch';
@@ -121,8 +122,10 @@ function* stockMarketNews() {
 
 function* createBlogPost({ payload }) {
   try {
-    console.log({ payload });
+    const createBlogPostResult: ResponseGenerator = yield call<any>(post, API_ROUTE.GET_POSTS, payload);
+
+    console.log({ payload, createBlogPostResult });
   } catch(error) {
-    console.log('try/catch error in stockMarketNews saga');
+    console.log('try/catch error in stockMarketNews saga: ', error);
   }
 }

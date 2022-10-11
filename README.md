@@ -1,4 +1,4 @@
-# Stock Market Recommender
+# Blog Posts
 
 ## Development
 
@@ -11,8 +11,8 @@ To run the source code locally:
 
 ## Production
 
-Open [https://stockmarketrecommender.vercel.app/](https://stockmarketrecommender.vercel.app/) with your browser to see the application live in production.
+Open [https://vaco-built-fe-test.vercel.app/](https://vaco-built-fe-test.vercel.app/) with your browser to see the application live in production.
 
 ## Contribution
 
-You can check out [the Stock Market Recommender GitHub repository](https://github.com/kevinshirley/stockmarketrecommender/) - your feedback and contributions are welcome!
+You can check out [the Blog posts GitHub repository](https://github.com/kevinshirley/vaco-built-fe-test) - your feedback and contributions are welcome!

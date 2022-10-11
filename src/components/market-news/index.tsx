@@ -25,6 +25,8 @@ function MarketNewsContainer() {
         <div className={BEM_BLOCK}>
           <div className={`${BEM_BLOCK}__create-blog-post`}>
             <Link href={`/create`}>Create blog post</Link>
+            <br/>
+            <br/>
           </div>
           <div className={`${BEM_BLOCK}__list`}>
             {blogPosts.map((post: PostType) => {
