@@ -110,8 +110,6 @@ function* stockMarketNews() {
     } else {
       console.log('No stock market news available');
     }
-
-    console.log({ vacoBuiltPostsResult });
   } catch(error) {
     console.log('try/catch error in stockMarketNews saga');
   }

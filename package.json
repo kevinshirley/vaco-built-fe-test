@@ -28,6 +28,7 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-saga": "^1.2.1",
+    "reselect": "^4.1.6",
     "sass": "^1.54.5",
     "twitter-api-v2": "^1.12.5"
   },

@@ -2,48 +2,51 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { isEmpty, isNil } from 'ramda';
 import moment from 'moment';
-import { selectMarketNews } from '../../store/selectors/news';
 
-interface INews {
+import { selectMarketNews, selectSlugifiedBlogPosts } from '../../store/selectors/news';
+import Link from '../common/link';
+
+interface PostType {
   id: number;
   title: string;
   text: string;
   timestamp: string;
+  slug: string;
 }
 
 const BEM_BLOCK = 'c-market-news';
 
 function MarketNewsContainer() {
-  const marketNews: INews[] = useSelector(selectMarketNews);
-  console.log({ marketNews });
+  const marketNews: PostType[] = useSelector(selectMarketNews);
+  const blogPosts = useSelector(selectSlugifiedBlogPosts);
 
   return (
     <>
-      {!isEmpty(marketNews) && !isNil(marketNews) && (
+      {!isEmpty(blogPosts) && !isNil(blogPosts) ? (
         <div className={BEM_BLOCK}>
           <div className={`${BEM_BLOCK}__list`}>
-            {marketNews.map((news: INews) => {
-              const dateObject = new Date(news.timestamp)
+            {blogPosts.map((post: PostType) => {
+              const dateObject = new Date(post.timestamp)
               const published = moment(dateObject).format('LLL');
 
               return (
-                <a
+                <Link
                   className={`${BEM_BLOCK}__news-anchor`}
-                  // href={news.url}
-                  key={news.id}
-                  target='_blank'
-                  rel="noreferrer"
+                  href={`/${post.slug}`}
+                  key={post.id}
                 >
                   <div className={`${BEM_BLOCK}__news`}>
-                    <h2>{news.title}</h2>
+                    <h2>{post.title}</h2>
                     <h5>Published: {published}</h5>
-                    <p dangerouslySetInnerHTML={{ __html: news.text }}></p>
+                    <p dangerouslySetInnerHTML={{ __html: post.text }}></p>
                   </div>
-                </a>
+                </Link>
               );
             })}
           </div>
         </div>
+      ) : (
+        <>No blog posts currently available.</>
       )}
     </>
   );
