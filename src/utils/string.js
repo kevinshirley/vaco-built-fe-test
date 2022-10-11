@@ -33,9 +33,21 @@ export const spaceToDash = (string) => {
   return string;
 }
 
+export const removeSpecialCharacters = (string) => {
+  if (string.indexOf('?') > 0) {
+    const data = string.replace('?', '');
+    return data;
+  } else if (string.indexOf('!') > 0) {
+    const data = string.replace('!', '');
+    return data;
+  }
+
+  return string;
+}
+
 export const slugify = (string) => {
   if (!isEmpty(string) && !isNil(string)) {
-    const slug = spaceToDash(string);
+    const slug = spaceToDash(removeSpecialCharacters(string));
     return toLower(slug);
   }
 

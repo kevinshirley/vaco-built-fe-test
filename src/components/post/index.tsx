@@ -15,7 +15,7 @@ interface PostType {
   slug: string;
 }
 
-const BEM_BLOCK = 'c-market-news';
+const BEM_BLOCK = 'c-blog-post';
 
 function MarketNewsContainer() {
   const router = useRouter();
@@ -36,11 +36,13 @@ function MarketNewsContainer() {
   return (
     <>
       {!isNil(post) && !isEmpty(post) ? (
-        <div className={`${BEM_BLOCK}__news`}>
-          <Link href='/'>Back to blog posts</Link>
-          <h2>{post.title}</h2>
-          {/* <h5>Published: {published}</h5> */}
-          <p dangerouslySetInnerHTML={{ __html: post.text }}></p>
+        <div className={BEM_BLOCK}>
+          <div className={`${BEM_BLOCK}__post`}>
+            <Link href='/'>Back to blog posts</Link>
+            <h2>{post.title}</h2>
+            {/* <h5>Published: {published}</h5> */}
+            <p dangerouslySetInnerHTML={{ __html: post.text }}></p>
+          </div>
         </div>
       ) : (
         <>This blog post is not currently available</>

@@ -257,6 +257,18 @@ body {
     }
   }
 
+  .c-blog-post {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .c-blog-post__post {
+      width: 90%;
+      color: $light;
+    }
+  }
+
   .c-footer {
     color: $light;
     padding: 320px 10px 15px 10px;
