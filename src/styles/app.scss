@@ -1,0 +1,273 @@
+@import './variables.scss';
+
+html,
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.c-search {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 7px;
+  padding: 0 15px;
+
+  .c-search__icon {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+    cursor: pointer;
+    color: $light;
+  }
+
+  .c-search__field {
+    input {
+      border: 0 !important;
+      outline: none;
+      color: $light;
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+      border: none !important;
+    }
+  }
+}
+
+.c-main {
+  background: $main-background;
+
+  .c-header {
+    display: flex;
+    justify-content: center;
+    padding: 30px 10px;
+
+    h1 {
+      margin-block-start: 0;
+      margin-block-end: 0;
+      color: $light;
+      text-align: center;
+    }
+  }
+
+  .c-home {
+    .c-home__search-stocks {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .c-home__search-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        width: 400px;
+        background: rgba($dark, 0.4);
+        border-radius: 6px;
+        margin: 0 15px 0;
+
+        @media screen and (max-width: 425px) {
+          width: 85%;
+        }
+
+        .c-search {
+          width: 100%;
+        }
+      }
+
+      .c-home__search-input-results {
+        background-color: $light;
+        padding: 15px 10px;
+        border-radius: 6px;
+        width: 400px;
+        max-height: 300px;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        overflow: scroll;
+
+        @media screen and (max-width: 425px) {
+          width: 85%;
+        }
+
+        .c-home__search-input-result {
+          text-align: left;
+          margin-bottom: 10px;
+          justify-content: flex-start;
+        }
+      }
+    }
+
+    .c-home__no-input {
+      padding: 60px 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.3em;
+      color: $light;
+    }
+
+    .c-home__stock-dates {
+      display: flex;
+      justify-content: space-around;
+      margin: 30px 15px;
+      color: $light;
+
+      .c-home__stock-date {
+        cursor: pointer;
+        color: $light;
+      }
+    }
+
+    .c-home__stock-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 50px 15px;
+
+      @media screen and (max-width: 700px) {
+        grid-template-columns: 1fr;
+      }
+
+      .c-home__detail {
+        display: flex;
+        justify-content: center;
+        color: $light;
+
+        @media screen and (max-width: 700px) {
+          margin-bottom: 50px;
+        }
+      }
+
+      .c-home__stock-name {
+        .c-home__content {
+          .c-home__social-mentions {
+            display: flex;
+            align-items: center;
+
+            .c-home__twitter-icon {
+              svg {
+                fill: $twitter-light-blue;
+              }
+            }
+          }
+        }
+      }
+
+      .c-home__stock-logo {
+        .c-home__content {
+          img {
+            max-width: 130px;
+          }
+        }
+      }
+
+      .c-home__stock-price-details {
+        .c-home__content {
+          text-align: right;
+
+          @media screen and (max-width: 700px) {
+            text-align: left;
+          }
+
+          .c-home__stock-quote-negative {
+            color: $error;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+
+            @media screen and (max-width: 700px) {
+              justify-content: flex-start;
+            }
+          }
+
+          .c-home__stock-quote-positive {
+            color: $success;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+
+            @media screen and (max-width: 700px) {
+              justify-content: flex-start;
+            }
+          }
+
+          .c-home__recommendation {
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+      }
+    }
+
+    .c-home__stock-chart {
+      display: flex;
+      justify-content: center;
+
+      canvas {
+        background-color: $light;
+      }
+    }
+  }
+
+  .c-market-news {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 100px;
+
+    h2, h3, p, span, a {
+      color: $light;
+      text-decoration: none;
+    }
+
+    .c-market-news__title {
+      padding: 0 30px;
+    }
+
+    .c-market-news__list {
+      height: 1200px;
+      width: 100%;
+      overflow: scroll;
+      width: 650px;
+      padding: 0 30px;
+
+      @media screen and (max-width: 700px) {
+        width: 85%;
+      }
+
+      .c-market-news__news-anchor {
+        .c-market-news__news {
+          margin-bottom: 50px;
+          background: rgba($dark, 0.4);
+          padding: 15px;
+          border-radius: 8px;
+
+          img {
+            width: 400px;
+
+            @media screen and (max-width: 700px) {
+              width: 85%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .c-footer {
+    color: $light;
+    padding: 320px 10px 15px 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    small {
+      a {
+        color: $light;
+      }
+    }
+  }
+}
